@@ -1,0 +1,37 @@
+<aura:component>
+    <aura:attribute name="header" type="String" default="Search" />
+    <aura:attribute name="title" type="String" default="Search" />
+
+    <aura:attribute name="searchTerm" type="String" access="private" />
+    <aura:attribute name="startDate" type="Date" access="private" />
+    <aura:attribute name="endDate" type="Date" access="private" />
+
+    <aura:registerEvent name="searchButtonClicked" type="c:ClientSideSearchEvent" />
+
+    <aura:method name="searchRecords" action="{! c.searchRecords }">
+        <aura:attribute name="records" type="Object[]" />
+    </aura:method>
+
+    <lightning:accordion allowMultipleSectionsOpen="true">
+        <lightning:accordionSection name="search" label="{! v.header }">
+            <lightning:card title="{! v.title }">
+                <div class="slds-grid slds-gutters">
+                    <div class="slds-col">
+                        <lightning:input label="Keyword" value="{! v.searchTerm }" />
+                    </div>
+                    <div class="slds-col">
+                        <lightning:input type="date" label="Start Date" value="{! v.startDate }" />
+                    </div>
+                    <div class="slds-col">
+                        <lightning:input type="date" label="End Date" value="{! v.endDate }" />
+                    </div>
+                    <div class="slds-col">
+                        <lightning:button variant="brand" label="Search" onclick="{! c.searchClick }" class="rvlt-search-button"/>
+                        <lightning:button variant="neutral" label="Clear" onclick="{! c.clearSearch }" class="rvlt-search-button"/>
+                    </div>
+                </div>
+            </lightning:card>
+        </lightning:accordionSection>
+    </lightning:accordion>
+
+</aura:component>
