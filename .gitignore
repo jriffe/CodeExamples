@@ -15,8 +15,6 @@ force-app/main/default/classes/MyProfilePageController.cls
 force-app/main/default/classes/MyProfilePageController.cls-meta.xml
 force-app/main/default/classes/MyProfilePageControllerTest.cls
 force-app/main/default/classes/MyProfilePageControllerTest.cls-meta.xml
-force-app/main/default/classes/RecordTypeSelectorCTRL.cls
-force-app/main/default/classes/RecordTypeSelectorCTRL.cls-meta.xml
 force-app/main/default/classes/SiteLoginController.cls
 force-app/main/default/classes/SiteLoginController.cls-meta.xml
 force-app/main/default/classes/SiteLoginControllerTest.cls
