@@ -1,0 +1,37 @@
+<aura:component controller='ContinuationExample1' implements="force:appHostable">
+    <aura:handler name="init" value="{!this}" action="{!c.init}" />
+
+    <aura:attribute name="componentLoading" type="Boolean" default="false" />
+    <aura:attribute name="animalString" type="String" />
+    <aura:attribute name="newAnimalName" type="String" />
+    <aura:attribute name="animals" type="List" />
+
+    <div class="slds-is-relative slds-var-p-around_x-large">
+        <lightning:layout multipleRows="true">
+            <lightning:layoutItem padding="around-small" size="12" class="slds-align_absolute-center">
+                <lightning:button variant="neutral" label="Call Webservice" onclick="{!c.callContinuation}" />
+            </lightning:layoutItem>
+            <lightning:layoutItem padding="around-small" size="12" class="slds-align_absolute-center">
+                {!v.animalString}
+            </lightning:layoutItem>
+
+            <lightning:layoutItem padding="around-small" size="12" class="slds-align_absolute-center">
+                <lightning:input type="text" label="New Animal Name" value="{!v.newAnimalName}" />
+                <lightning:button variant="neutral" label="Call Webservice" onclick="{!c.callAddAnimalContinuation}" class="animal-button" />
+            </lightning:layoutItem>
+            <lightning:layoutItem padding="around-small" size="12" class="slds-align_absolute-center">
+                <ul>
+                <aura:iteration items="{!v.animals}" var="animal">
+                    <li>{!animal}</li>
+                </aura:iteration>
+                </ul>
+            </lightning:layoutItem>
+        </lightning:layout>
+
+        <aura:if isTrue="{!v.componentLoading}">
+            <lightning:spinner variant="brand" size="medium" />
+        </aura:if>
+    </div>
+
+
+</aura:component>
