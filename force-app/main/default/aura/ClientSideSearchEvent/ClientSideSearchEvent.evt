@@ -1,0 +1,3 @@
+<aura:event type="COMPONENT" description="Event when search button is clicked from Client Side Search">
+
+</aura:event>

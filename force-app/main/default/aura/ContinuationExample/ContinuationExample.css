@@ -1,0 +1,9 @@
+.THIS {
+    background: white;
+    border-radius: .025rem;
+}
+
+.THIS .animal-button {
+    margin-top: 21px;
+    margin-left: 20px;
+}
