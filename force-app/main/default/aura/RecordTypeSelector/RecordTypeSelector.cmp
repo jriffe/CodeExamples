@@ -1,0 +1,40 @@
+<aura:component controller="RecordTypeSelectorCTRL" implements="flexipage:availableForAllPageTypes,force:appHostable">
+    <aura:handler name="init" value="{!this}" action="{!c.init}"/>  
+
+    <aura:registerEvent name="onRecordTypeSelect" type="c:RecordTypeSelectedEvent" />
+
+    <aura:attribute name="objectName" type="String" access="public" />
+
+    <aura:attribute name="selectedRecordTypeId" type="String"/>
+    <aura:attribute name="recordTypeList" type="List" />
+    
+     
+    <!--Component Start-->
+
+    <div class="forceChangeRecordType">
+        <div class="changeRecordTypeRow">
+            <fieldset class="slds-form-element slds-no-space">
+                <legend class="changeRecordTypeLeftColumn slds-form-element__legend slds-form-element__label">Select a record type</legend>
+                <div class="changeRecordTypeRightColumn slds-form-element__control">
+                    <aura:iteration items="{! v.recordTypeList }" var="rt">
+                        <label for="{! rt.recordTypeId }" class="slds-radio">
+                            <div class="changeRecordTypeOptionLeftColumn">
+                                <input checked="{! v.selectedRecordTypeId == rt.recordTypeId }" id="{! rt.recordTypeId }" value="{! rt.recordTypeId }" type="radio" onchange="{! c.recordTypeChange }" class="input uiInput uiInputRadio uiInput--default uiInput--radio"  />
+                                <span class="slds-radio--faux"></span>
+                            </div>
+                            <div class="changeRecordTypeOptionRightColumn">
+                                <span class="slds-form-element__label">{! rt.recordTypeName }</span>
+                                <div class="changeRecordTypeItemDescription changeRecordTypeLabel" >{! rt.recordTypeDescription }</div>
+                            </div>
+                        </label>
+                        <div class="clearall"></div>
+                    </aura:iteration>
+                </div>
+            </fieldset>
+        </div>
+    </div>
+
+    <div class="slds-float_right slds-var-p-right_xx-large">
+        <lightning:button label="Next" onclick="{! c.handleRecordTypeNext }" variant="brand"/>
+    </div>
+</aura:component>
